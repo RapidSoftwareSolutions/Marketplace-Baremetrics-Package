@@ -1,0 +1,46 @@
+       <?php
+       $routes = [
+       'showPlanBreakout',
+       'showCustomers',
+       'showSingleMetric',
+       'showSummary',
+       'getSingleEvent',
+       'getEvents',
+       'getSingleCharge',
+       'createCharge',
+       'getCharges',
+       'getSingleUser',
+       'getUsers',
+       'deleteGoal',
+       'getSingleGoal',
+       'createGoal',
+       'getGoals',
+       'deleteAnnotation',
+       'getAnnotation',
+       'createAnnotation',
+       'getAnnotations',
+       'deleteSubscription',
+       'cancelSubscription',
+       'updateSubscription',
+       'getSubscription',
+       'createSubscription',
+       'getSubscriptions',
+       'deleteCustomer',
+       'getCustomerEvents',
+       'getCustomer',
+       'updateCustomer',
+       'createCustomer',
+       'getCustomers',
+       'deletePlan',
+       'updatePlan',
+       'getSinglePlan',
+       'createPlan',
+       'getPlans',
+       'getSources',
+        'getAccount',
+        'metadata'
+       ];
+       foreach ($routes as $file) {
+           require __DIR__ . '/../src/routes/' . $file . '.php';
+       }
+

@@ -1,0 +1,1558 @@
+{
+  "package": "Baremetrics",
+  "tagline": "Baremetrics API",
+  "description": "Zero-setup subscription analytics and insights",
+  "image": "http:\/\/logo.clearbit.com\/baremetrics.com",
+  "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-Baremetrics-Package",
+  "keywords": [
+    "API",
+    "analytics",
+    "integration",
+    "stripe",
+    "recurly",
+    "braintree"
+  ],
+  "accounts": {
+    "domain": "baremetrics.com",
+    "credentials": [
+      "apiKey"
+    ]
+  },
+  "blocks": [
+    {
+      "name": "getAccount",
+      "description": "Get your account information",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSources",
+      "description": "Get your sources information",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "perPage",
+          "type": "Number",
+          "info": "Number of results per page",
+          "required": false
+        },
+        {
+          "name": "page",
+          "type": "Number",
+          "info": "Number of results page",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getPlans",
+      "description": "Get your plans information",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "perPage",
+          "type": "Number",
+          "info": "Number of results per page",
+          "required": false
+        },
+        {
+          "name": "page",
+          "type": "Number",
+          "info": "Number of results page",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "createPlan",
+      "description": "Create new plan",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "id of the source",
+          "required": true
+        },
+        {
+          "name": "planId",
+          "type": "String",
+          "info": "Your unique ID for the plan",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Your internal name for this plan. This will be displayed in the Plan Breakout section",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "type": "String",
+          "info": "The ISO code of the currency of this plan. E.G: usd",
+          "required": true
+        },
+        {
+          "name": "amount",
+          "type": "Number",
+          "info": "How much is this plan? (In cents)",
+          "required": true
+        },
+        {
+          "name": "interval",
+          "type": "Select",
+          "options": [
+            "day",
+            "month",
+            "year"
+          ],
+          "info": "Interval of the plan",
+          "required": true
+        },
+        {
+          "name": "intervalCount",
+          "type": "Number",
+          "info": "Count of the interval",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSinglePlan",
+      "description": "Show single plan information",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "planId",
+          "type": "String",
+          "info": "Your unique ID for the plan",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "updatePlan",
+      "description": "Update existing plan",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "id of the source",
+          "required": true
+        },
+        {
+          "name": "planId",
+          "type": "String",
+          "info": "Your unique ID for the plan",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Your internal name for this plan. This will be displayed in the Plan Breakout section",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getCustomers",
+      "description": "Get your customers information",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "perPage",
+          "type": "Number",
+          "info": "Number of results per page",
+          "required": false
+        },
+        {
+          "name": "page",
+          "type": "Number",
+          "info": "Number of results page",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "createCustomer",
+      "description": "Create new customer",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "customerId",
+          "type": "String",
+          "info": "Your unique ID for the customer",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "info": "Customer email",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Customer name",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Your own notes for this customer. These will be displayed in the profile",
+          "required": false
+        },
+        {
+          "name": "created",
+          "type": "DatePicker",
+          "info": "Y-m-d hh:mm:ss of when this customer was created. Defaults to now.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "updateCustomer",
+      "description": "Update existing customer",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "customerId",
+          "type": "String",
+          "info": "Your unique ID for the customer",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "info": "Customer email",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Customer name",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Your own notes for this customer. These will be displayed in the profile",
+          "required": false
+        },
+        {
+          "name": "created",
+          "type": "DatePicker",
+          "info": "Y-m-d hh:mm:ss of when this customer was created. Defaults to now.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getCustomer",
+      "description": "Get existing customer",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "customerId",
+          "type": "String",
+          "info": "Your unique ID for the customer",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getCustomerEvents",
+      "description": "Get existing customer events",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "customerId",
+          "type": "String",
+          "info": "Your unique ID for the customer",
+          "required": true
+        },
+        {
+          "name": "perPage",
+          "type": "Number",
+          "info": "Number of results per page",
+          "required": false
+        },
+        {
+          "name": "page",
+          "type": "Number",
+          "info": "Number of results page",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteCustomer",
+      "description": "Delete existing customer",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "customerId",
+          "type": "String",
+          "info": "Your unique ID for the customer",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSubscriptions",
+      "description": "Get your subscriptions information",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "perPage",
+          "type": "Number",
+          "info": "Number of results per page",
+          "required": false
+        },
+        {
+          "name": "page",
+          "type": "Number",
+          "info": "Number of results page",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "createSubscription",
+      "description": "Create new subscription",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "subscriptionId",
+          "type": "String",
+          "info": "ID of the subscription",
+          "required": true
+        },
+        {
+          "name": "startedAt",
+          "type": "DatePicker",
+          "info": "Date time of when this subscription started",
+          "required": true
+        },
+        {
+          "name": "canceledAt",
+          "type": "DatePicker",
+          "info": "Date time of when this subscription was, or should be canceled. This cannot be changed, so only set this if you are certain you know when the subscription will end.",
+          "required": false
+        },
+        {
+          "name": "planId",
+          "type": "String",
+          "info": "ID of the plan",
+          "required": true
+        },
+        {
+          "name": "customerId",
+          "type": "String",
+          "info": "ID of the customer",
+          "required": true
+        },
+        {
+          "name": "addons",
+          "type": "List",
+          "structure": {
+            "name": "addon",
+            "type": "JSON",
+            "info": "Single addon object"
+          },
+          "info": "Array of addons for this subscription",
+          "required": false
+        },
+        {
+          "name": "quantity",
+          "type": "Number",
+          "info": "Quantity of the subscription",
+          "required": false
+        },
+        {
+          "name": "discount",
+          "type": "Number",
+          "info": "Discount value (in the same currency as the plan)",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSubscription",
+      "description": "Get existing subscription",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "subscriptionId",
+          "type": "String",
+          "info": "ID of the subscription",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "updateSubscription",
+      "description": "Update existing subscription",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "subscriptionId",
+          "type": "String",
+          "info": "ID of the subscription",
+          "required": true
+        },
+        {
+          "name": "occurredAt",
+          "type": "DatePicker",
+          "info": "Date time of when this change occurred. Defaults to now",
+          "required": false
+        },
+        {
+          "name": "planId",
+          "type": "String",
+          "info": "ID of the plan",
+          "required": true
+        },
+        {
+          "name": "addons",
+          "type": "List",
+          "structure": {
+            "name": "addon",
+            "type": "JSON",
+            "info": "Single addon object"
+          },
+          "info": "Array of addons for this subscription",
+          "required": false
+        },
+        {
+          "name": "quantity",
+          "type": "Number",
+          "info": "Quantity of the subscription",
+          "required": false
+        },
+        {
+          "name": "discount",
+          "type": "Number",
+          "info": "Discount value (in the same currency as the plan)",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "cancelSubscription",
+      "description": "Cancel existing subscription",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "subscriptionId",
+          "type": "String",
+          "info": "ID of the subscription",
+          "required": true
+        },
+        {
+          "name": "canceledAt",
+          "type": "DatePicker",
+          "info": "Date time of when this subscription was, or should be canceled.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteSubscription",
+      "description": "Delete existing subscription",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "subscriptionId",
+          "type": "String",
+          "info": "ID of the subscription",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getAnnotations",
+      "description": "Get your annotations information",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "perPage",
+          "type": "Number",
+          "info": "Number of results per page",
+          "required": false
+        },
+        {
+          "name": "page",
+          "type": "Number",
+          "info": "Number of results page",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "createAnnotation",
+      "description": "Create new annotations",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "metric",
+          "type": "String",
+          "info": "Which metric is this for?",
+          "required": true
+        },
+        {
+          "name": "annotation",
+          "type": "String",
+          "info": "The annotation text",
+          "required": true
+        },
+        {
+          "name": "date",
+          "type": "DatePicker",
+          "info": "The annotation date",
+          "required": true
+        },
+        {
+          "name": "global",
+          "type": "Boolean",
+          "info": "Should this show on all graphs?",
+          "required": true
+        },
+        {
+          "name": "userId",
+          "type": "String",
+          "info": "Who added this annotation?",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getAnnotation",
+      "description": "Show single annotation information",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "annotationId",
+          "type": "String",
+          "info": "Id of the annotations",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteAnnotation",
+      "description": "Delete single annotation",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "annotationId",
+          "type": "String",
+          "info": "Id of the annotations",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getGoals",
+      "description": "Get your goals information",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "perPage",
+          "type": "Number",
+          "info": "Number of results per page",
+          "required": false
+        },
+        {
+          "name": "page",
+          "type": "Number",
+          "info": "Number of results page",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "createGoal",
+      "description": "Create new goal",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "metric",
+          "type": "String",
+          "info": "Metric of the goal",
+          "required": true
+        },
+        {
+          "name": "startAmount",
+          "type": "Number",
+          "info": "Start amount in cents",
+          "required": true
+        },
+        {
+          "name": "endAmount",
+          "type": "Number",
+          "info": "End amount in cents",
+          "required": true
+        },
+        {
+          "name": "startDate",
+          "type": "DatePicker",
+          "info": "Start date of goal",
+          "required": true
+        },
+        {
+          "name": "endDate",
+          "type": "DatePicker",
+          "info": "End date of goal",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Name of goal",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleGoal",
+      "description": "Get existing goal",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "goalId",
+          "type": "String",
+          "info": "ID of the goal",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteGoal",
+      "description": "Delete existing goal",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "goalId",
+          "type": "String",
+          "info": "ID of the goal",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getUsers",
+      "description": "Get your users information",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "perPage",
+          "type": "Number",
+          "info": "Number of results per page",
+          "required": false
+        },
+        {
+          "name": "page",
+          "type": "Number",
+          "info": "Number of results page",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleUser",
+      "description": "Get existing user",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "userId",
+          "type": "String",
+          "info": "ID of the user",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getCharges",
+      "description": "Get your charges information",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "perPage",
+          "type": "Number",
+          "info": "Number of results per page",
+          "required": false
+        },
+        {
+          "name": "page",
+          "type": "Number",
+          "info": "Number of results page",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "createCharge",
+      "description": "Create new charge",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "chargeId",
+          "type": "String",
+          "info": "Unique ID of the charge",
+          "required": true
+        },
+        {
+          "name": "customerId",
+          "type": "String",
+          "info": "ID of the customer",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "type": "String",
+          "info": "The ISO code of the currency of this plan. E.G: usd",
+          "required": true
+        },
+        {
+          "name": "amount",
+          "type": "Number",
+          "info": "Charge amount (In cents)",
+          "required": true
+        },
+        {
+          "name": "created",
+          "type": "DatePicker",
+          "info": "Datetime of when this was created (defaults to now)",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "Select",
+          "options": [
+            "paid",
+            "failed"
+          ],
+          "info": "The status of this charge. Defaults to paid.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleCharge",
+      "description": "Get single charge",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "chargeId",
+          "type": "String",
+          "info": "ID of the charge",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getEvents",
+      "description": "Get your events information",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "perPage",
+          "type": "Number",
+          "info": "Number of results per page",
+          "required": false
+        },
+        {
+          "name": "page",
+          "type": "Number",
+          "info": "Number of results page",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleEvent",
+      "description": "Get single event",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "eventId",
+          "type": "String",
+          "info": "ID of the event",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "showSummary",
+      "description": "Get your summary metrics",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "startDate",
+          "type": "DatePicker",
+          "info": "Start date for summary",
+          "required": true
+        },
+        {
+          "name": "endDate",
+          "type": "DatePicker",
+          "info": "End date for summary",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "showSingleMetric",
+      "description": "Get single metrics information",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "startDate",
+          "type": "DatePicker",
+          "info": "Start date for summary",
+          "required": true
+        },
+        {
+          "name": "endDate",
+          "type": "DatePicker",
+          "info": "End date for summary",
+          "required": true
+        },
+        {
+          "name": "metricId",
+          "type": "String",
+          "info": "Id of the metric",
+          "required": true
+        },
+        {
+          "name": "compareTo",
+          "type": "Number",
+          "info": "The number of days ago to compare results to",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "showCustomers",
+      "description": "Returns a list of customers that make up this metric. For example, the upgrades metric will return all customers who have upgraded within the selected range. You can also see their MRR contribution.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "startDate",
+          "type": "DatePicker",
+          "info": "Start date for summary",
+          "required": true
+        },
+        {
+          "name": "endDate",
+          "type": "DatePicker",
+          "info": "End date for summary",
+          "required": true
+        },
+        {
+          "name": "metricId",
+          "type": "String",
+          "info": "Id of the metric",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "showPlanBreakout",
+      "description": "This allows you to break down a metric by plan, across a date range.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "startDate",
+          "type": "DatePicker",
+          "info": "Start date for summary",
+          "required": true
+        },
+        {
+          "name": "endDate",
+          "type": "DatePicker",
+          "info": "End date for summary",
+          "required": true
+        },
+        {
+          "name": "metricId",
+          "type": "String",
+          "info": "Id of the metric",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    }
+  ]
+}
