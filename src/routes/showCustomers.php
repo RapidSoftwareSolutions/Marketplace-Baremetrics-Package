@@ -4,7 +4,7 @@ $app->post('/api/Baremetrics/showCustomers', function ($request, $response, $arg
 
     //checking properly formed json
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey', 'endDate', 'startDate', 'metricId']);
+    $validateRes = $checkRequest->validate($request, ['apiKey', 'endDate', 'startDate', 'metric']);
     if (!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback'] == 'error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
@@ -12,9 +12,9 @@ $app->post('/api/Baremetrics/showCustomers', function ($request, $response, $arg
     }
     //forming request to vendor API
 
-    $query_str = $settings['api_url'] . 'metrics/'.$post_data['args']['metricId'].'/customers';
-    $post_data['args']['startDate'] = \Models\ParamsModifier::timeToUnixtime($post_data['args']['startDate']);
-    $post_data['args']['endDate'] = \Models\ParamsModifier::timeToUnixtime($post_data['args']['endDate']);
+    $query_str = $settings['api_url'] . 'metrics/'.$post_data['args']['metric'].'/customers';
+    $post_data['args']['startDate'] = explode(' ', $post_data['args']['startDate'])[0];
+    $post_data['args']['endDate'] = explode(' ', $post_data['args']['endDate'])[0];
     $params = [
         'apiKey' => 'apiKey',
         'start_date' => 'startDate',

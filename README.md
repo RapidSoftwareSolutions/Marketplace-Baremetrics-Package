@@ -375,7 +375,7 @@ Get single metrics information
 | apiKey   | credentials| Api key provided by Baremetrics
 | startDate| DatePicker | Start date for summary
 | endDate  | DatePicker | End date for summary
-| metricId | String     | Id of the metric
+| metric | String     | Id of the metric
 | compareTo| Number     | The number of days ago to compare results to
 
 ## Baremetrics.showCustomers
@@ -386,7 +386,7 @@ Returns a list of customers that make up this metric. For example, the upgrades 
 | apiKey   | credentials| Api key provided by Baremetrics
 | startDate| DatePicker | Start date for summary
 | endDate  | DatePicker | End date for summary
-| metricId | String     | Id of the metric
+| metric | String     | Id of the metric
 
 ## Baremetrics.showPlanBreakout
 This allows you to break down a metric by plan, across a date range.
@@ -396,5 +396,5 @@ This allows you to break down a metric by plan, across a date range.
 | apiKey   | credentials| Api key provided by Baremetrics
 | startDate| DatePicker | Start date for summary
 | endDate  | DatePicker | End date for summary
-| metricId | String     | Id of the metric
+| metric | String     | Id of the metric
 
