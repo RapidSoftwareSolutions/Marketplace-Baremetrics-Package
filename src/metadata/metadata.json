@@ -1451,7 +1451,7 @@
           "required": true
         },
         {
-          "name": "metricId",
+          "name": "metric",
           "type": "String",
           "info": "Id of the metric",
           "required": true
@@ -1497,7 +1497,7 @@
           "required": true
         },
         {
-          "name": "metricId",
+          "name": "metric",
           "type": "String",
           "info": "Id of the metric",
           "required": true
@@ -1537,7 +1537,7 @@
           "required": true
         },
         {
-          "name": "metricId",
+          "name": "metric",
           "type": "String",
           "info": "Id of the metric",
           "required": true
