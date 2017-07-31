@@ -11,7 +11,6 @@ Zero-setup subscription analytics and insights
 2. Go to [Setting page](https://app.baremetrics.com/settings/api) to get your apiKey 
 
 
-
 ## Custom datatypes: 
  |Datatype|Description|Example
  |--------|-----------|----------
@@ -71,6 +70,15 @@ Show single plan information
 | sourceId| String     | ID of the source
 | planId  | String     | Your unique ID for the plan
 
+## Baremetrics.deletePlan
+Delete single plan
+
+| Field   | Type       | Description
+|---------|------------|----------
+| apiKey  | credentials| Api key provided by Baremetrics
+| sourceId| String     | ID of the source
+| planId  | String     | Your unique ID for the plan
+
 ## Baremetrics.updatePlan
 Update existing plan
 
@@ -101,7 +109,7 @@ Create new customer
 | customerId| String     | Your unique ID for the customer
 | email     | String     | Customer email
 | name      | String     | Customer name
-| name      | String     | Your own notes for this customer. These will be displayed in the profile
+| notes     | String     | Your own notes for this customer. These will be displayed in the profile
 | created   | DatePicker | Y-m-d hh:mm:ss of when this customer was created. Defaults to now.
 
 ## Baremetrics.updateCustomer
@@ -375,7 +383,7 @@ Get single metrics information
 | apiKey   | credentials| Api key provided by Baremetrics
 | startDate| DatePicker | Start date for summary
 | endDate  | DatePicker | End date for summary
-| metric | String     | Id of the metric
+| metric   | String     | Id of the metric
 | compareTo| Number     | The number of days ago to compare results to
 
 ## Baremetrics.showCustomers
@@ -386,7 +394,7 @@ Returns a list of customers that make up this metric. For example, the upgrades 
 | apiKey   | credentials| Api key provided by Baremetrics
 | startDate| DatePicker | Start date for summary
 | endDate  | DatePicker | End date for summary
-| metric | String     | Id of the metric
+| metric   | String     | Id of the metric
 
 ## Baremetrics.showPlanBreakout
 This allows you to break down a metric by plan, across a date range.
@@ -396,5 +404,5 @@ This allows you to break down a metric by plan, across a date range.
 | apiKey   | credentials| Api key provided by Baremetrics
 | startDate| DatePicker | Start date for summary
 | endDate  | DatePicker | End date for summary
-| metric | String     | Id of the metric
+| metric   | String     | Id of the metric
 

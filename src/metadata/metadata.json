@@ -217,6 +217,39 @@
           "info": "Success"
         }
       ]
+    }, {
+      "name": "deletePlan",
+      "description": "Delete single plan",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key provided by Baremetrics",
+          "required": true
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "ID of the source",
+          "required": true
+        },
+        {
+          "name": "planId",
+          "type": "String",
+          "info": "Your unique ID for the plan",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
     },
     {
       "name": "updatePlan",
@@ -333,7 +366,7 @@
           "required": false
         },
         {
-          "name": "name",
+          "name": "notes",
           "type": "String",
           "info": "Your own notes for this customer. These will be displayed in the profile",
           "required": false
